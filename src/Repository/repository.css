@@ -1,0 +1,11 @@
+.list {
+    padding: 10px;
+}
+
+.searchContainer {
+    padding: 20px;
+    background: #6bcdcd;
+    display: flex;
+    color: white;
+    justify-content: center;
+}
