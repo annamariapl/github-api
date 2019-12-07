@@ -3,11 +3,14 @@ import React, { useState } from "react";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import "./App.css";
-import Button, { SearchContainer, Title } from "./ComponentsRegistery";
-import InfiniteList from "./Repository/InfiniteList";
-import History from "./SearchForm/History";
+import Button from "./ReusableComponents/Button/Button";
+import { SearchContainer } from "./ReusableComponents/SearchContainer/SearchContainer";
 import SearchForm from "./SearchForm/SearchForm";
+import History from "./Tabs/History";
 import { Repo } from "./types";
+import { Title } from "./ReusableComponents/Title/Title";
+import InfiniteList from "./Tabs/InfiniteList";
+
 const axios = require("axios").default;
 
 function MainPage() {
@@ -75,7 +78,7 @@ function MainPage() {
               handleSubmit={handleSubmit}
             />
 
-            <Button kind={"DELETE"} onClick={resetSearch}>
+            <Button kind="DELETE" onClick={resetSearch}>
               reset
             </Button>
           </SearchContainer>

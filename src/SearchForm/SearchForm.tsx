@@ -1,5 +1,5 @@
 import React from "react";
-import "../componentRegistery.less";
+import "./searchForm.less"
 
 interface Props {
   query: string;
@@ -13,13 +13,14 @@ const SearchForm: React.FC<Props> = ({ handleSubmit, handleChange, query }) => {
       <form onSubmit={handleSubmit}>
         <input
           className="searchInput"
-          placeholder="Searches for repo name or words in description"
+          placeholder="Search repo name or keywords in description"
           type="text"
           value={query}
           onChange={handleChange}
         />
-        <input className="normalButton" type="submit" value="Submit" />
+        <input className="normalButton" type="submit" value="Search" />
       </form>
+
     </>
   );
 };

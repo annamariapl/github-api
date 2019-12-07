@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import "./repository.css";
-import Repository from "./Repository";
+
 import { Repo } from "../types";
+import RepositoryComponent from "../Repository/Repository";
 
 type Props = {
   repos: Repo[];
@@ -40,7 +40,7 @@ const InfiniteList: React.FC<Props> = ({ repos, query, getData }) => {
 
   return (
     <div id="list">
-      <Repository repos={repos} />
+      <RepositoryComponent repos={repos} />
     </div>
   );
 };

@@ -1,7 +1,8 @@
 import React from "react";
 import { FaStar } from "react-icons/fa";
-import { Container, Title } from "../ComponentsRegistery";
+import { Container } from "../ReusableComponents/Container/Container";
 import { Repo } from "../types";
+import { Title } from "../ReusableComponents/Title/Title";
 
 type Props = {
   repos: Repo[];

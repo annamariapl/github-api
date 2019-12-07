@@ -1,5 +1,9 @@
 import React, { useState } from "react";
-import { Title, Container } from "../ComponentsRegistery";
+import Button from "../ReusableComponents/Button/Button";
+import { Container } from "../ReusableComponents/Container/Container";
+
+import { Title } from "../ReusableComponents/Title/Title";
+
 
 const History: React.FC = () => {
   const localStorageArray = Object.entries(localStorage)
@@ -28,7 +32,7 @@ const History: React.FC = () => {
               <i> {` search no. ${i}`}</i>
             </small>
             <div>
-              <button onClick={() => deleteHistoryItem(el[0])}>delete</button>
+            <Button kind="DELETE" onClick={() => deleteHistoryItem(el[0])}>delete</Button>
             </div>
             <div>{el[1]}</div>
           </Container>

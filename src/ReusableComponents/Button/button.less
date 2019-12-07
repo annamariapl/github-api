@@ -1,0 +1,17 @@
+@import "../../colors.less";
+
+.buttonBase {
+    color: white;
+    font-size: medium;
+    padding: 10px 15px;
+    margin: 5px;
+    border: 1px solid white;
+  }
+  
+  .normalButton:extend(.buttonBase) {
+    background: @darkblue;
+  }
+  
+  .deleteButton:extend(.buttonBase) {
+    background: @lightred;
+  }
