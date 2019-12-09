@@ -23,11 +23,11 @@ const RepositoryComponent: React.FC<Props> = ({ repos }) => {
               className="none"
             >
               <ContainerWithHover>
-                <p>
-                  <div className="description">{repo.description}</div>
-                  <FaStar color="#f3dc47" /> {repo.stargazers_count}
-                </p>
+                <div className="header">
+                <FaStar color="#f3dc47" /> {repo.stargazers_count}|
                 <Title title={repo.name} />
+                </div>
+                  <div className="description">{repo.description}</div>
               </ContainerWithHover>
             </a>
           );

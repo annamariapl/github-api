@@ -27,13 +27,14 @@ const History: React.FC = () => {
       {mapLocalStorageInState.map((el, i) => {
         return (
           <ContainerWithHover>
+            <div >{el[1]}
             <small>
               <i> {` search no. ${i}`}</i>
             </small>
+            </div>
             <div>
             <Button kind="DELETE" onClick={() => deleteHistoryItem(el[0])}>delete</Button>
             </div>
-            <div>{el[1]}</div>
           </ContainerWithHover>
         );
       })}
