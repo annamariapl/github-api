@@ -1,6 +1,6 @@
 import React from "react";
 import "./container.less";
 
-export const Container: React.FC = props => {
+export const ContainerWithHover: React.FC = props => {
     return <div {...props} className="elementContainer"></div>;
   };

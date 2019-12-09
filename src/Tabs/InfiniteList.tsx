@@ -10,7 +10,6 @@ type Props = {
 };
 
 const InfiniteList: React.FC<Props> = ({ repos, query, getData }) => {
-  console.log("repos: ", repos);
   const [loadMore, setLoadMore] = useState(true);
 
   useEffect(() => {

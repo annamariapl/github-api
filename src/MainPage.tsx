@@ -5,19 +5,23 @@ import "react-tabs/style/react-tabs.css";
 import "./App.css";
 import Button from "./ReusableComponents/Button/Button";
 import { SearchContainer } from "./ReusableComponents/SearchContainer/SearchContainer";
+import { Title } from "./ReusableComponents/Title/Title";
 import SearchForm from "./SearchForm/SearchForm";
 import History from "./Tabs/History";
-import { Repo } from "./types";
-import { Title } from "./ReusableComponents/Title/Title";
 import InfiniteList from "./Tabs/InfiniteList";
+import { Repo } from "./types";
 
 const axios = require("axios").default;
 
 function MainPage() {
   const [query, setQuery] = useState<string>("");
+  const [lastQuery, setLastQuery] = useState<string|null>("jakisdziwnystring");
+  console.log('lastQuery', lastQuery)
   const [repos, setRepos] = useState<Repo[]>([]);
   const [page, setPage] = useState<number>(0);
-  console.log("page IN PAGE: ", page);
+  console.log('page', page)
+ 
+  
 
   const handleChange = (e: any) => {
     setQuery(e.target.value);
@@ -43,13 +47,14 @@ function MainPage() {
             `https://api.github.com/search/repositories?q=${query}&page=${page}&sort=stars&order=desc&per_page=10`
           )
           .then((response: { data: { items: Repo[] } }) => {
-            if (page === 0) {
-              resetSearch();
-              setRepos(response.data.items);
-            } else {
-              resetSearch();
-              setRepos([...repos, ...response.data.items]);
-            }
+            if (query === lastQuery) {
+            setRepos([...repos, ...response.data.items]);
+            setLastQuery(query);
+          } else {
+            resetSearch();
+            setLastQuery(query);
+            setRepos(response.data.items);
+          }
             setPage(page + 1);
           });
       } catch (error) {

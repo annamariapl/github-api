@@ -1,8 +1,19 @@
+
+@import "../../glocalStyle.less";
+
 .elementContainer {
     display: flex;
     flex-direction: column-reverse;
-    background: #f0f0f0;
+    background: @lightgray;
     height: 100px;
-    border: 1px solid #f8f8f8;
+    border: @standardBorder;
     padding: 20px;
+    text-decoration: none;
+    color: @darkblue;
+   &:hover {
+    background-color: white;
+    color: @blue;
   }
+}
+
+  

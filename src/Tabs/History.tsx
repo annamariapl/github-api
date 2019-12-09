@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Button from "../ReusableComponents/Button/Button";
-import { Container } from "../ReusableComponents/Container/Container";
+import { ContainerWithHover } from "../ReusableComponents/Container/Container";
 
 import { Title } from "../ReusableComponents/Title/Title";
 
@@ -14,7 +14,6 @@ const History: React.FC = () => {
     localStorageArray
   );
   const deleteHistoryItem = (item: string) => {
-    console.log("item: ", item);
     localStorage.removeItem(item);
     let copy = mapLocalStorageInState.filter(el => item !== el[0]);
     setMapLocalStorageInState(copy);
@@ -27,7 +26,7 @@ const History: React.FC = () => {
       </div>
       {mapLocalStorageInState.map((el, i) => {
         return (
-          <Container>
+          <ContainerWithHover>
             <small>
               <i> {` search no. ${i}`}</i>
             </small>
@@ -35,7 +34,7 @@ const History: React.FC = () => {
             <Button kind="DELETE" onClick={() => deleteHistoryItem(el[0])}>delete</Button>
             </div>
             <div>{el[1]}</div>
-          </Container>
+          </ContainerWithHover>
         );
       })}
     </>
